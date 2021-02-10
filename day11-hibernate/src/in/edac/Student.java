@@ -2,24 +2,42 @@ package in.edac;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table (name="EDAC_STUDENT")
 public class Student implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
-	private String id;
+	@GeneratedValue
+	@Column(name = "Id")
+	private int id;
+	
+	@Column(name = "Username")
 	private String username;
+	
+	@Column(name = "Password")
 	private String password;
+	
+	@Column(name = "Email", unique = true)
 	private String email;
+	
+	@Column(name = "Mobile")
 	private String mobile;
 	
 	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getUsername() {
